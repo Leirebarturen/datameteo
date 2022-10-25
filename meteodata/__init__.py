@@ -1,2 +1,0 @@
-from meteodata.analisis_tiempo import analizar_datos
-from meteodata.datos_tiempo import generar_datos
