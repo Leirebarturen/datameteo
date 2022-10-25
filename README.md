@@ -28,11 +28,11 @@ pip install pandas"><pre><span class="pl-c"><span class="pl-c">#</span> PyPI</sp
 pip install pandas</pre></div>
 
 ## Dependencias
-* <a href="[url](https://pypi.org/project/requests/)">requests - Realiza la petición de los datos a la API.</a>
-* <a href="[url](https://geopy.readthedocs.io/en/stable/)">geopy - Ofrece as coordenadas de la ubicación introducida a través de la API Nominatim.</a>
-* <a href="[url](https://pypi.org/project/pandas/)">pandas - Ofrece soporte y funciones para realizar descriptivos numéricos de los datos.</a>
-* <a href="[url](https://matplotlib.org/)">matplotlib - Ofrece funciones para realizar gráficos de lineas de los datos. </a>
-* <a href="[url](https://seaborn.pydata.org/)">seaborn - Ofrece funciones para realizar gráficos de líneas y barras de los datos.</a>
+<li><a href="https://pypi.org/project/requests/" rel="nofollow">requests - Realiza la petición de los datos a la API.</a></li>
+<li><a href="https://geopy.readthedocs.io/en/stable/" rel="nofollow">geopy - Ofrece as coordenadas de la ubicación introducida a través de la API Nominatim.</a></li>
+<li><a href="https://pypi.org/project/pandas/" rel="nofollow">pandas - Ofrece soporte y funciones para realizar descriptivos numéricos de los datos.</a></li>
+<li><a href="https://matplotlib.org/" rel="nofollow">matplotlib - Ofrece funciones para realizar gráficos de lineas de los datos.</a></li>
+<li><a href="https://seaborn.pydata.org/" rel="nofollow">seaborn - Ofrece funciones para realizar gráficos de líneas y barras de los datos.</a></li>
 
 ## Documentación
 La documentación oficial está alojada en PyData.org: https://pandas.pydata.org/pandas-docs/stable
