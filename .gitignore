@@ -1,1 +1,5 @@
 *.png
+setup.py
+setup.cfg
+LICENSE.txt
+MANIFEST
