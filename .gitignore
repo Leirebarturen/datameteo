@@ -3,3 +3,5 @@ setup.py
 setup.cfg
 LICENSE.txt
 MANIFEST
+/meteodata.egg-info
+/dist
