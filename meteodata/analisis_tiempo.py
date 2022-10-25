@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime, timedelta
 import os
+from datos_tiempo import generar_datos
 class analizar_datos(generar_datos):
     """
     Clase que hereda la clase generar_datos
