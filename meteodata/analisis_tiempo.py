@@ -1,4 +1,3 @@
-from datos_tiempo import generar_datos
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
