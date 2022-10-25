@@ -7,7 +7,7 @@ import os
 class analizar_datos(generar_datos):
     """
     Clase que hereda la clase generar_datos
-    Genera descriptivos y visualizaciones de los datos meteorológicos. 
+    Genera descriptivos y visualizaciones de los datos metereológicos. 
 
     """
     def __init__(self, provincia,api_key,out_path='.'):
@@ -18,7 +18,7 @@ class analizar_datos(generar_datos):
         Atributos heredados
         -------------------
             provincia : str. Obligatorio.
-                Nombre de la provincia de la que se quieren obtener los datos meteorológicos
+                Nombre de la provincia de la que se quieren obtener los datos metereológicos
             api_key : str. Obligatorio.
                 La llave necesaria para acceder a la API de OpenWeatherMap.
         
@@ -47,7 +47,7 @@ class analizar_datos(generar_datos):
 
 
     def descriptivos(self,variable = 'todos'):
-        """Genera los descriptivos de las variables meteorológicas.
+        """Genera los descriptivos de las variables metereológicos.
         Args:
         -----
             variable: (str)
@@ -79,7 +79,7 @@ class analizar_datos(generar_datos):
         return descrip
     
     def boxplots(self,variable = 'todos'):
-        """Genera boxplots (visualizaciones) de las variables meteorológicas.
+        """Genera boxplots (visualizaciones) de las variables metereológicas.
         Args:
         -----
             variable: (str)
@@ -117,7 +117,7 @@ class analizar_datos(generar_datos):
         return fig1
 
     def lineas(self,variable = 'todos'):
-        """Genera gráficos de líneas de las variables meteorológicas.
+        """Genera gráficos de líneas de las variables metereológicas.
         Args:
         -----
             variable: (str)

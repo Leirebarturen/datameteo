@@ -1,2 +1,2 @@
 from analisis_tiempo import analizar_datos
-from datos_tiempo import datos_tiempo
+from datos_tiempo import generar_datos

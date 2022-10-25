@@ -5,13 +5,13 @@ from geopy.geocoders import Nominatim
 
 
 class generar_datos():
-    """ Obtiene datos meteorológicos de las 48h previas a través de la API de OpenWeatherMap."""        
+    """ Obtiene datos metereológicos de las 48h previas a través de la API de OpenWeatherMap."""        
     def __init__(self, provincia, api_key):
         """ inicializar los atributos del objeto
         Atributos
         ----------
         provincia : str. Obligatorio
-            Nombre de la provincia de la que se quieren obtener los datos meteorológicos
+            Nombre de la provincia de la que se quieren obtener los datos metereológicos
         api_key : str. Obligatorio
             La llave necesaria para acceder a la API de OpenWeatherMap.
         __url0:
@@ -46,7 +46,7 @@ class generar_datos():
         Returns:
         ---------
             data : json
-            Información meteorológico en formate json. 
+            Información metereológica en formato json. 
         """
 
         lat, lon = self.coordenadas()
