@@ -1,15 +1,20 @@
-# analisis_metereologico
+
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/981d48e57e23a4907cebc4eb481799b5882595ea978261f22a3e131dcd6ebee6/68747470733a2f2f70616e6461732e7079646174612e6f72672f7374617469632f696d672f70616e6461732e737667"><img src="https://camo.githubusercontent.com/981d48e57e23a4907cebc4eb481799b5882595ea978261f22a3e131dcd6ebee6/68747470733a2f2f70616e6461732e7079646174612e6f72672f7374617469632f696d672f70616e6461732e737667" data-canonical-src="https://pandas.pydata.org/static/img/pandas.svg" style="max-width: 100%;"></a><br>
+
+<p dir="auto"><a href="https://pypi.org/project/pandas/" rel="nofollow"><img src="https://camo.githubusercontent.com/74cb3c88c43d4266705ae6ec7fddc1bbf603eb6d15bf2202ceb3416cd26b7c0d/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f70616e6461732e737667" alt="PyPI Latest Release" data-canonical-src="https://img.shields.io/pypi/v/pandas.svg" style="max-width: 100%;"></a>
+ 
+# meteo
 
 ## ¿Qué es?
-analisis_metereologico es un paquete de Python que proporciona el acceso a datos meteorológicos para que el análisis de estos sea más rápido y sencillo. Después de definir cualquier ubicación, descarga datos metereológicos de temperatura, humedad, viento, precipitación y estado del cielo de las últimas 48 horas. Ofrece la posibilidad de mostrar los datos por pantalla como texto o por visualizaciones generando imágenes.     
+meteo es un paquete de Python que proporciona el acceso a datos meteorológicos para que el análisis de estos sea más rápido y sencillo. Después de definir cualquier ubicación, descarga datos metereológicos de temperatura, humedad, viento, precipitación y estado del cielo de las últimas 48 horas. Ofrece la posibilidad de mostrar los datos por pantalla como texto o por visualizaciones generando imágenes.     
 
 
 ## Principales características
 La librería puede hacer las siguientes cosas:
 * Muestra coordenadas de latitud y longitud de la ubicación introducida a través de Nominatim.
 * Descarga de los datos en formato json.
-* Temperatura de las últimas 24 horas en ºC.
-* Humedad de las últimas 24 horas en g/m3.
+* Temperatura de las últimas 48 horas en ºC.
+* Humedad de las últimas 48 horas en g/m3.
 * Rachas de viento de las últimas 48 horas en m/s.
 * Precipitación de los últimos 48 minutos en l/m2.
 * Tipos de estados de cielo.
@@ -18,8 +23,8 @@ La librería puede hacer las siguientes cosas:
 ## Dónde conseguirlo
 El código fuente está actualmente alojado en GitHub en: https://github.com/pandas-dev/pandas.
 Los instaladores para la última versión publicada están disponibles en Python Package Index (PyPI).
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="# or PyPI
-pip install pandas"><pre><span class="pl-c"><span class="pl-c">#</span> or PyPI</span>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="# PyPI
+pip install pandas"><pre><span class="pl-c"><span class="pl-c">#</span> PyPI</span>
 pip install pandas</pre></div>
 
 ## Dependencias
