@@ -1,7 +1,7 @@
-# analisis_meteorologico
+# analisis_metereologico
 
 ## ¿Qué es?
-analisis_meteorologico es un paquete de Python que proporciona el acceso a datos meteorológicos para que el análisis de estos sea más rápido y sencillo. Después de definir cualquier ubicación, descarga datos metereológicos de temperatura, humedad, viento, precipitación y estado del cielo de las últimas 48 horas. Ofrece la posibilidad de mostrar los datos por pantalla como texto o por visualizaciones generando imágenes.     
+analisis_metereologico es un paquete de Python que proporciona el acceso a datos meteorológicos para que el análisis de estos sea más rápido y sencillo. Después de definir cualquier ubicación, descarga datos metereológicos de temperatura, humedad, viento, precipitación y estado del cielo de las últimas 48 horas. Ofrece la posibilidad de mostrar los datos por pantalla como texto o por visualizaciones generando imágenes.     
 
 
 ## Principales características
