@@ -3,10 +3,10 @@
 
 <p dir="auto"><a href="https://pypi.org/project/pandas/" rel="nofollow"><img src="https://camo.githubusercontent.com/74cb3c88c43d4266705ae6ec7fddc1bbf603eb6d15bf2202ceb3416cd26b7c0d/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f70616e6461732e737667" alt="PyPI Latest Release" data-canonical-src="https://img.shields.io/pypi/v/pandas.svg" style="max-width: 100%;"></a>
  
-# meteo
+# meteodata
 
 ## ¿Qué es?
-meteo es un paquete de Python que proporciona el acceso a datos meteorológicos para que el análisis de estos sea más rápido y sencillo. Después de definir cualquier ubicación, descarga datos metereológicos de temperatura, humedad, viento, precipitación y estado del cielo de las últimas 48 horas. Ofrece la posibilidad de mostrar los datos por pantalla como texto o por visualizaciones generando imágenes.     
+meteodata es un paquete de Python que proporciona el acceso a datos meteorológicos para que el análisis de estos sea más rápido y sencillo. Después de definir cualquier ubicación, descarga datos metereológicos de temperatura, humedad, viento, precipitación y estado del cielo de las últimas 48 horas. Ofrece la posibilidad de mostrar los datos por pantalla como texto o por visualizaciones generando imágenes.     
 
 
 ## Principales características
