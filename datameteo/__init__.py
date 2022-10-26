@@ -1,2 +1,1 @@
-from datameteo.analisis_tiempo import analizar_datos
-from datameteo.datos_tiempo import generar_datos
+from datameteo.datos_tiempo import generar_datos, analizar_datos
