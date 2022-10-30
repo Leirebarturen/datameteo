@@ -10,17 +10,17 @@ from datetime import datetime, timedelta
 import os
 
 class generar_datos():
-    """ Obtiene datos metereológicos de las 48h previas a través de la API de OpenWeatherMap."""        
+    """ Obtiene datos metereológicos de las 48h previas a través de la API de OpenWeatherMap
+
+    :param provincia: Nombre de la provincia de la que se quieren obtener los datos metereológicos
+    :type provincia: str, obligatorio 
+    :api_key: La llave necesaria para acceder a la API de OpenWeatherMap
+    :type api_key: str, obligatorio
+    :__url0: Variable encapsulada que especifica el URL para efectuar la descarga de los datos
+    :type __url10: str, por defecto https://api.openweathermap.org/data/2.5/onecall?lat=%s&lon=%s&appid=%s&units=metric
+    """             
     def __init__(self, provincia, api_key):
         """ inicializar los atributos del objeto
-        Atributos
-        ----------
-        provincia : str. Obligatorio
-            Nombre de la provincia de la que se quieren obtener los datos metereológicos
-        api_key : str. Obligatorio
-            La llave necesaria para acceder a la API de OpenWeatherMap.
-        __url0:
-            Variable encapsulada. Es el url para efectuar la descarga de los datos.
         """        
         self.provincia = provincia
         self.api_key = api_key
@@ -31,11 +31,10 @@ class generar_datos():
         return self.__url0
     
     def coordenadas(self):
-        """Proporciona la latitud y longitud de la provincia mediante la API Nominatim.
-        Returns:
-        --------
-            lat : float
-            log : float
+        """Proporciona la latitud y longitud de la provincia mediante la API Nominatim
+
+        :return: Una tupla con la latitud y longitud de la provincia especificada
+        :rtype: tupla con dos valores float (lat, long)
         """
         geolocator = Nominatim(user_agent="geoapiExercises")
         location = geolocator.geocode(self.provincia)
@@ -46,12 +45,10 @@ class generar_datos():
         """Llama a la función de coordeanadas para obtener las coordenadas.
         A partir de la latitud y longitud que la función devuelve una petición a 
         OperWeatherMap para obtener los datos en formato json. Si la petición no es posible
-        salta un error de falta de conexión a internet.
+        salta un error de falta de conexión a internet
 
-        Returns:
-        ---------
-            data : json
-            Información metereológica en formato json. 
+        :return: Información metereológica en formato json, en caso de que no haya internet, devuelve un mensaje informativo
+        :rtype: json
         """
 
         lat, lon = self.coordenadas()
@@ -66,36 +63,30 @@ class generar_datos():
 
     def temperatura(self):
         """Genera una lista horaria de la temperatura en grados ºC de las últimas 48 horas a partir 
-        del json data.
+        del json data
 
-        Returns:
-        --------
-            temp : list of float
-            Una lista de floats correspondiente a las temperaturas. 
+        :return: La temperatura en las últimas 48 horas
+        :rtype: lista
         """
         temp = [(info['temp']) for info in self.data['hourly']]
         return temp
 
     def humedad(self):
         """Genera una lista horaria de la humedad en g/m^3 de las últimas 48 horas a partir 
-        del json data.
+        del json data
 
-        Returns:
-        --------
-            hum : list of float
-            Una lista de floats correspondiente a las humedades. 
+        :return: La humedad en las últimas 48 horas
+        :rtype: lista 
         """
         hum = [(info['humidity']) for info in self.data['hourly']]
         return hum
 
     def viento(self):
         """Genera una lista horaria del viento (m/s) de las últimas 48 horas a partir 
-        del json data.
+        del json data
 
-        Returns:
-        --------
-            viento : list of float
-            Una lista de floats correspondiente al viento. 
+        :return: Viento en las últimas 48 horas
+        :rtype: lista 
         """
         viento = [(info['wind_speed']) for info in self.data['hourly']]
         return viento
@@ -104,10 +95,8 @@ class generar_datos():
         """Genera una lista en minutos de las precipitaciones en l/m2 a partir 
         del json data.
 
-        Returns:
-        --------
-            prec : list of float
-            Una lista de floats correspondiente a la precipitación. 
+        :return: LLuvia en los últimos minutos
+        :rtype: lista
         """
         prec = [(info['precipitation']) for info in self.data['minutely']]
         return prec
@@ -115,10 +104,8 @@ class generar_datos():
     def cielo(self):
         """Genera una lista horaria del estado del cielo de las últimas 48 horas
 
-        Returns:
-        --------
-            estado : list of str
-            Una lista de strings correspondiente a los estados del cielo. 
+        :return: Estado del cielo en las últimas 48 horas
+        :rtype: lista
         """
         estado = [(info['weather'][0]['description']) for info in self.data['hourly']]
         return estado
@@ -126,11 +113,7 @@ class generar_datos():
 
     def show(self):
         """Muestra en pantalla la descripción completa de los últimos valores recogidos 
-        en OpenWeatherMap.
-
-        Returns:
-        --------
-            None
+        en OpenWeatherMap
         """
         print("""At this moment the weather in %s is the following: \nThe state of the sky is %s with %sºC and a humidity of %sg/m3. 
         The wind in this moment is %sm/s and during the day it has rained %sl/m2""" 
@@ -140,29 +123,23 @@ class generar_datos():
 
 class analizar_datos(generar_datos):
     """
-    Clase que hereda la clase generar_datos
-    Genera descriptivos y visualizaciones de los datos metereológicos. 
+    Clase que genera descriptivos y visualizaciones de los datos metereológicos
+    Hereda la clase :class:`generar_datos`. Ejecuta el constructor del método heredado y el método `generar_datos.extraer_info` para guardar como atributo 
+    los datos en formato json
 
-    """
+    :param provincia: Nombre de la provincia de la que se quieren obtener los datos metereológicos
+    :type provincia: str, obligatorio
+    :param api_key: La llave necesaria para acceder a la API de OpenWeatherMap
+    :type api_key: str, obligatorio
+    :param out_path: Directorio para guardar las visualizaciones que se generan. Por defecto, ubicación actual `.`. En caso de no existir el directorio, se pone por defecto el directorio actual. 
+    :type out_path: str, opcional 
+           . 
+           
+    """  
     def __init__(self, provincia,api_key,out_path='.'):
-        """ inicializar los atributos del objeto. 
-        Ejecuta tambien el método heredado extraer info para guardar como atributo 
-        los datos en formato json. 
+        """ inicializar los atributos del objeto
+        """
 
-        Atributos heredados
-        -------------------
-            provincia : str. Obligatorio.
-                Nombre de la provincia de la que se quieren obtener los datos metereológicos
-            api_key : str. Obligatorio.
-                La llave necesaria para acceder a la API de OpenWeatherMap.
-        
-        Atributos
-        ----------
-            out_path : str. 
-                No obligatorio. Por defecto, ubicación actual. 
-                Directorio para guardar las visualizaciones que se generan. 
-                En caso de no existir el directorio, se pone por defecto el directorio actual. 
-        """  
         self.out_path = out_path
         
         super().__init__(provincia, api_key)
@@ -180,23 +157,14 @@ class analizar_datos(generar_datos):
             self.__out_path = '.'
 
 
-    def descriptivos(self,variable = 'todos'):
-        """Genera los descriptivos de las variables metereológicos.
-        Args:
-        -----
-            variable: (str)
-            No obligatoria.
-            Por defecto: todos. Otras opciones: temperatura, humedad, viento, precipitacion, cielo.
-            - Por defecto: 
-                Genera los descriptivos de todas las variables. 
-            - Otras opciones:
-                Genera los descriptivos de la variable seleccionada.
-            
-            Obtiene los datos de los métodos heredados. 
+    def descriptivos(self, variable = 'todos'):
+        """Genera los descriptivos de las variables metereológicos. Por defecto, genera los descriptivos de todas las variables, 
+        aunque se pueden generar descriptivos de una variable seleccionada. Obtiene los datos de los métodos heredados
 
-        Returns:
-        ---------
-            descrip : Pandas DataFrame
+        :param variable: por defecto a todos. Otras opciones: temperatura, humedad, viento, precipitacion, cielo
+        :type variable: str, opcional
+        :return: lo datos de los métodos heredados
+        :rtype: pandas DataFrame
         """
 
         if variable == 'todos':
@@ -213,22 +181,13 @@ class analizar_datos(generar_datos):
         return descrip
     
     def boxplots(self,variable = 'todos'):
-        """Genera boxplots (visualizaciones) de las variables metereológicas.
-        Args:
-        -----
-            variable: (str)
-            No obligatoria.
-            Por defecto: todos. Otras opciones: temperatura, humedad, viento, precipitacion, cielo.
-            - Por defecto: 
-                Genera una figura de múltiples boxplots correspondientes a las variables. 
-            - Otras opciones:
-                Genera una figura, un boxplot, de la variable seleccionada.
-            
-            Obtiene los datos de los métodos heredados. 
-
-        Returns:
-        --------
-            fig : figura de matplotlib
+        """Genera boxplots (visualizaciones) de las variables metereológicas. Por defecto, genera una figura de múltiples boxplots de todas las variables, 
+        aunque se puede generar una figura de un solo boxplot de una variable seleccionada. Obtiene los datos de los métodos heredados 
+        
+        :param variable: por defecto a todos. Otras opciones: temperatura, humedad, viento, precipitacion, cielo
+        :type variable: str, opcional
+        :return: Boxplot(s) de la(s) variables(s) introducida(s).
+        :rtype: figura de matplotlib
         """
         if variable == 'todos':
             temp = super().temperatura()
@@ -251,22 +210,13 @@ class analizar_datos(generar_datos):
         return fig1
 
     def lineas(self,variable = 'todos'):
-        """Genera gráficos de líneas de las variables metereológicas.
-        Args:
-        -----
-            variable: (str)
-            No obligatoria.
-            Por defecto: todos. Otras opciones: temperatura, humedad, viento, precipitacion, cielo.
-            - Por defecto: 
-                Genera una figura de múltiples gráficos de líneas correspondientes a las variables. 
-            - Otras opciones:
-                Genera una figura, un gráfico de líneas, de la variable seleccionada.
-            
-            Obtiene los datos de los métodos heredados. 
-
-        Returns:
-        ---------
-            fig : figura de matplotlib
+        """Genera gráficos de líneas de las variables metereológicas. Por defecto, genera una figura de múltiples líneas de todas las variables, 
+        aunque se puede generar una figura de una sola línea de una variable seleccionada. Obtiene los datos de los métodos heredados
+        
+        :param variable: por defecto a todos. Otras opciones: temperatura, humedad, viento, precipitacion, cielo
+        :type variable: str, opcional
+        :return: Gráfico(s) de línea(s) de la(s) variable(s) introducida(s)
+        :rtype: figura de matplotlib
         """
         if variable == 'todos':
             temp = super().temperatura()
@@ -299,11 +249,10 @@ class analizar_datos(generar_datos):
         return fig1
 
     def barras(self):
-        """Genera gráfico de barras del estado del cielo de las últimas 48 horas. 
+        """Genera gráfico de barras del estado del cielo de las últimas 48 horas
 
-        Returns:
-        --------
-            fig : figura de matplotlib
+        :return: gráfico de barras
+        :rtype: figura de matplotlib
         """
         cielo = pd.Series(super().cielo()).value_counts()
         fig1, ax1 = plt.subplots(figsize=(10, 8))
