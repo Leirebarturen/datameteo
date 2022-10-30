@@ -25,6 +25,10 @@ Los instaladores para la última versión publicada están disponibles en Python
 <div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="# PyPI
 pip install datameteo"><pre><span class="pl-c"><span class="pl-c">#</span> PyPI</span>
 pip install datameteo</pre></div>
+Comando para actualizar el paquete.
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="# PyPI
+pip install datameteo --upgrade"><pre><span class="pl-c"><span class="pl-c">#</span> PyPI</span>
+pip install datameteo --upgrade</pre></div>
 
 ## Dependencias
 <li><a href="https://pypi.org/project/requests/" rel="nofollow">requests - Realiza la petición de los datos a la API.</a></li>
