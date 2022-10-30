@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Ejemplos &#8212; documentación de datameteo - </title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="datameteo package" href="datameteo.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="datameteo.html" title="datameteo package"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentación de datameteo - </a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ejemplos</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ejemplos">
+<h1>Ejemplos<a class="headerlink" href="#ejemplos" title="Enlace permanente a este encabezado">¶</a></h1>
+<section id="instalacion-uso">
+<h2>Instalación/Uso<a class="headerlink" href="#instalacion-uso" title="Enlace permanente a este encabezado">¶</a></h2>
+<p>El código fuente está actualmente alojado en GitHub en: <a class="reference external" href="https://github.com/pandas-dev/pandas">https://github.com/pandas-dev/pandas</a>. Los instaladores para la última versión publicada están disponibles en Python Package Index (PyPI).
+Para obtener instrucciones sobre cómo instalar, así como la documentación completa de, <code class="docutils literal notranslate"><span class="pre">datameteo</span></code> accede <a class="reference external" href="https://github.com/Leirebarturen/datameteo">aquí</a>.</p>
+</section>
+<section id="a-continuacion-se-mostra-un-ejemplo-del-uso-de-la-libreria">
+<h2>A continuación se mostra un ejemplo del uso de la librería:<a class="headerlink" href="#a-continuacion-se-mostra-un-ejemplo-del-uso-de-la-libreria" title="Enlace permanente a este encabezado">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="sd">&quot;&quot;&quot;Este ejemplo demuestra el uso de la libreria ``datameteo``</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datameteo</span> <span class="k">as</span> <span class="nn">dm</span>
+
+ <span class="c1"># Se instancia la clase de generación de datos, especificando la ubicación y la API key para hacer la consulta</span>
+ <span class="n">datos_bilbao</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">generar_datos</span><span class="p">(</span><span class="n">provincia</span> <span class="o">=</span> <span class="s2">&quot;Bilbao&quot;</span><span class="p">,</span> <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;464aef7687e9220994fe3f4d43e9b22c&quot;</span><span class="p">)</span>
+ <span class="c1"># Se descargan los datos meterológicos en formato json</span>
+ <span class="n">datos_bilbao</span><span class="o">.</span><span class="n">extraer_info</span><span class="p">()</span>
+ <span class="n">coord</span> <span class="o">=</span> <span class="n">datos_bilbao</span><span class="o">.</span><span class="n">coordenadas</span><span class="p">()</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Las coordenadas de Bilbao son </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">coord</span><span class="p">)))</span>
+ <span class="c1"># Se muestra por pantalla la información general</span>
+ <span class="n">datos_bilbao</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+ <span class="c1"># Se instancia la clase de análisis de datos, especificando los parámetro para la descarga de datos y el direcotrio output para las figuras</span>
+ <span class="n">eda</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">analizar_datos</span><span class="p">(</span><span class="n">provincia</span> <span class="o">=</span> <span class="s2">&quot;Bilbao&quot;</span><span class="p">,</span> <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;464aef7687e9220994fe3f4d43e9b22c&quot;</span><span class="p">,</span> <span class="n">out_path</span> <span class="o">=</span> <span class="s2">&quot;graf_met/&quot;</span><span class="p">)</span>
+ <span class="c1"># Se muestran descriptivos básicos de todas las variables</span>
+ <span class="nb">print</span><span class="p">(</span><span class="n">eda</span><span class="o">.</span><span class="n">descriptivos</span><span class="p">())</span>
+ <span class="c1"># Se generan boxplots para cada una de las variables</span>
+ <span class="n">eda</span><span class="o">.</span><span class="n">boxplots</span><span class="p">()</span>
+ <span class="c1"># Se genera la figura que meustra la evolución de la temperatua. Si no se especifica el parámetro variable, se genera una línea por cada varible</span>
+ <span class="n">eda</span><span class="o">.</span><span class="n">lineas</span><span class="p">(</span><span class="n">variable</span> <span class="o">=</span> <span class="s2">&quot;temperatura&quot;</span><span class="p">)</span>
+ <span class="c1"># Se genera un gráfico de barras con el conteo de los estados del cielo</span>
+ <span class="n">eda</span><span class="o">.</span><span class="n">barras</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Tabla de contenido</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Ejemplos</a><ul>
+<li><a class="reference internal" href="#instalacion-uso">Instalación/Uso</a></li>
+<li><a class="reference internal" href="#a-continuacion-se-mostra-un-ejemplo-del-uso-de-la-libreria">A continuación se mostra un ejemplo del uso de la librería:</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Tema anterior</h4>
+    <p class="topless"><a href="datameteo.html"
+                          title="capítulo anterior">datameteo package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/examples.rst.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="datameteo.html" title="datameteo package"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentación de datameteo - </a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ejemplos</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Derechos de autor 2022, Janire Amesti, Leire Barturen.
+      Creado usando <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>
