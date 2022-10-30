@@ -5,5 +5,4 @@ LICENSE.txt
 MANIFEST
 /meteodata.egg-info
 /dist
-/docs
 */__pycache__/
