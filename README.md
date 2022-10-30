@@ -43,4 +43,4 @@ pip install datameteo --upgrade</pre></div>
 <li><a href="https://seaborn.pydata.org/" rel="nofollow">seaborn - Ofrece funciones para realizar gráficos de líneas y barras de los datos.</a></li>
 
 ## Documentación
-La documentación oficial está alojada en PyData.org: https://pandas.pydata.org/pandas-docs/stable
+La documentación oficial está alojada en PyData.org: https://datameteo.readthedocs.io/en/latest/
